@@ -6,16 +6,16 @@ import { login } from '../../actions/auth';
 
 class LoginPage extends React.Component {
 
-    submit = data => {
-        this.props.login(data).then(()=>this.props.history.push("/"))
-    };
+    submit = data =>
+        this.props.login(data).then(() => this.props.history.push("/"));
+
 
     render() {
         return (
-    <div>
-        <h1>Login</h1>
-        <LoginForm submit={this.submit}/>
-    </div>
+            <div>
+                <h1>Login</h1>
+                <LoginForm submit={this.submit} />
+            </div>
         );
     }
 }
@@ -26,4 +26,4 @@ LoginPage.propTypes = {
     }).isRequired,
     login: PropTypes.func.isRequired
 }
-export default connect(null,{login})(LoginPage);
+export default connect(null, { login })(LoginPage);
