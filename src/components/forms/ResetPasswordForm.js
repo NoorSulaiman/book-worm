@@ -76,11 +76,8 @@ class ResetPassordForm extends React.Component {
 }
 
 ResetPassordForm.propTypes = {
-    token: PropTypes.string.isRequired
-}
-
-ResetPassordForm.propTypes = {
+    token: PropTypes.string.isRequired,
     submit: PropTypes.func.isRequired
-};
+}
 
 export default ResetPassordForm;
