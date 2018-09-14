@@ -24,9 +24,10 @@ export default {
       axios.post('/api/auth/update_password', { data })
   },
   books: {
-    searchBooks: query =>
-      axios
-        .get('/api/books/searchBooks', { query })
-        .then(res => res.data.books)
+    searchBooks: q => axios.get(`/api/books/searchBooks?q=${q}`).then(res => res.data.books),
+    fetchPages: id => axios.get(`/api/books/fetchPages?id=${id}`),
+    fetchAll: () => axios.get('/api/books').then(res => res.data.books),
+    create: book => axios.post('/api/books', { book }).then(res => res.data.book)
+
   }
 };

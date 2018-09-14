@@ -15,6 +15,7 @@ class SearchBookForm extends Component {
         this.setState({
             query: data
         });
+
         this.timer = setTimeout(this.fetchOptions, 1000)
     };
 
@@ -26,7 +27,7 @@ class SearchBookForm extends Component {
     fetchOptions = () => {
         if (!this.state.query) return;
         this.setState({ loading: true });
-        this.props.search(this.state.query).then(books => {
+        this.props.search(this.state.query.searchQuery).then(books => {
             const options = []
             const booksHash = {}
             books.forEach(book => {
@@ -49,7 +50,7 @@ class SearchBookForm extends Component {
                     search
                     fluid
                     placeholder="search for a book by title"
-                    value={this.state.query}
+                    value={this.state.query.searchQuery}
                     onSearchChange={this.onSearchChange}
                     options={this.state.options}
                     loading={this.state.loading}
