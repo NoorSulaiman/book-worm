@@ -27,7 +27,8 @@ export default {
     searchBooks: q => axios.get(`/api/books/searchBooks?q=${q}`).then(res => res.data.books),
     fetchPages: id => axios.get(`/api/books/fetchPages?id=${id}`),
     fetchAll: () => axios.get('/api/books').then(res => res.data.books),
-    create: book => axios.post('/api/books', { book }).then(res => res.data.book)
-
+    create: book => axios.post('/api/books', { book }).then(res => res.data.book),
+    progress: data => axios.post('/api/books/progress', { data }).then(res => res.data.book),
+    deleteBook: data => axios.delete('/api/books/deleteBook', { data }).then(res => res.data.book)
   }
 };
