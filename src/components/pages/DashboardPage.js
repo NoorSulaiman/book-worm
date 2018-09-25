@@ -19,8 +19,7 @@ class DashboardPage extends React.Component {
 
   submit = (data) => this.props.progress(data).then(() => this.onInit(this.props))
 
-  deleteBook = (data) => this.props.deleteBook(data).then(() => this.onInit(this.props))
-
+  deleteBook = (data) => this.props.deleteBook(data).then(setTimeout(() => this.onInit(this.props), 300))
 
 
 
@@ -34,7 +33,12 @@ class DashboardPage extends React.Component {
 
         {!isConfirmed && <ConfirmEmailMessage />}
 
-        {books.length === 0 ? <AddBooks /> : <BooksList books={books} submit={this.submit} deleteBook={this.deleteBook} />}
+        {books.length === 0 ? <AddBooks /> : <BooksList
+          books={books}
+          submit={this.submit}
+          deleteBook={this.deleteBook}
+        />
+        }
       </div >
     );
   }

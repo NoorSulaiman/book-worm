@@ -1,12 +1,32 @@
-.cardContainer {   
-    margin: 2%;
+img{
+    width: 100%;
+    max-width: 100%;
 }
-
+#imgContainer{
+    width: 50%;
+    margin: auto;
+}
 #showme{
     visibility: hidden;
 }
 #bookCard:hover #showme{
-    visibility:visible;
+    visibility: visible;
+}
+#confrimDelete{
+    margin: auto;
+    margin-top: 1% !important;
+    
+}
+#arrowIcon{
+    margin: auto;
+}
+#showProgressButton{
+    width: 100%;
+    margin: 2%;
+    padding: 6%;
+}
+.bookCardDelete {   
+    animation: bookDelete 300ms ease-in-out 1 normal forwards;
 }
 .arrowIconUp{
     animation: iconRotateUp 300ms ease-in-out 0s 1 normal forwards; 
@@ -14,13 +34,20 @@
 .arrowIconDown{
     animation: iconRotateDown 300ms ease-in-out 1 reverse forwards;
 }
+.formClassDown{
+    animation: scaleDown 300ms ease-in-out 1 normal forwards;
+}
+
+.iconDisplay{
+    display: none;
+}
 
 @keyframes iconRotateUp{
     from{
         transform: rotate(0deg);
     }
     to{
-        transform: rotate(180deg);
+        transform: rotate(90deg);
     }
 
 }
@@ -30,8 +57,24 @@
         transform: rotate(0deg);
     }
     to{
-        transform: rotate(180deg);
+        transform: rotate(90deg);
     }
 
 }
 
+@keyframes bookDelete {
+    from {
+        transform: scale(1);
+    }
+    to{
+        transform: scale(0);
+    }
+}
+@keyframes scaleDown {
+    from {
+        transform: scale(0)
+    }
+    to{
+        transform: scale(1);
+    }
+}

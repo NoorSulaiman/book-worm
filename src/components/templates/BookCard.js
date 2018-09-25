@@ -1,5 +1,5 @@
 import React from 'react';
-import { Card, Image, Icon, Progress } from 'semantic-ui-react';
+import { Card, Image, Icon, Progress, Confirm, Button } from 'semantic-ui-react';
 import ProgressForm from '../forms/ProgressForm';
 import './BookCard.css'
 
@@ -7,11 +7,32 @@ class BookCard extends React.Component {
 
     state = {
         showForm: false,
-        class: ''
+        iconClass: '',
+        open: false,
+        delete: false,
+        cardClass: "",
+        formClass: ""
+
     }
-    showProgressForm = () => {
-        this.state.showForm ? this.setState({ showForm: !this.state.showForm, class: 'arrowIconDown' })
-            : this.setState({ showForm: !this.state.showForm, class: 'arrowIconUp arrowIcon' })
+
+
+    showProgressForm = () => this.state.showForm ?
+        this.setState({ showForm: !this.state.showForm, iconClass: 'arrowIconDown' })
+        : this.setState({ showForm: !this.state.showForm, iconClass: 'arrowIconUp', formClass: "formClassDown" })
+
+
+    open = () => this.setState({ open: true })
+
+    close = () => this.setState({ open: false })
+
+    confirmBookDelete = (book) => {
+        this.close()
+        this.setState({ cardClass: "bookCardDelete" })
+        this.props.delete(
+            {
+                goodreadsId: book.goodreadsId,
+                id: book._id
+            })
     }
 
 
@@ -19,18 +40,26 @@ class BookCard extends React.Component {
     render() {
         const { book, progress } = this.props;
 
-
         return (
-            <Card id='bookCard' size='large'>
+
+            <Card id='bookCard' className={this.state.cardClass} size='large' >
                 <Card.Content textAlign="right">
                     <Icon
                         id='showme'
                         name='delete'
                         size='large'
-                        onClick={() => this.props.delete({ goodreadsId: book.goodreadsId, userId: book.userId, id: book._id })}>
+                        onClick={this.open}>
                     </Icon>
+                    <Confirm
+                        id='confrimDelete'
+                        open={this.state.open}
+                        onCancel={this.close}
+                        onConfirm={() => this.confirmBookDelete(book)}
+                    />
                 </Card.Content>
-                <Image src={book.cover} />
+                <Card.Content id="imgContainer">
+                    <Image src={book.cover} />
+                </Card.Content>
                 <Card.Content>
                     <Card.Header>{book.title}</Card.Header>
                     <Card.Meta>
@@ -46,15 +75,22 @@ class BookCard extends React.Component {
                     You finished {book.progress} Pages
                 </Card.Content>
                 <Card.Content textAlign='center'>
-                    <Icon
-                        className={this.state.class}
-                        name='arrow circle down'
-                        size='huge'
-                        onClick={() => this.showProgressForm()}
-                    />
+                    <Button id='showProgressButton' onClick={this.showProgressForm}>
+                        <Icon
+                            id='arrowIcon'
+                            className={this.state.iconClass}
+                            name='minus'
+                            size='huge'
+                        />
+                    </Button>
                 </Card.Content>
                 <Card.Content extra>
-                    {this.state.showForm ? <ProgressForm book={book} submit={this.props.submit} showForm={this.showProgressForm} /> : null}
+                    {this.state.showForm ? <ProgressForm
+                        className={this.state.formClass}
+                        book={book}
+                        submit={this.props.submit}
+                        showForm={this.showProgressForm}
+                    /> : null}
                 </Card.Content>
             </Card >
         );

@@ -52,7 +52,7 @@ class ProgressForm extends React.Component {
     render() {
         const { data, errors, loading } = this.state;
         return (
-            <Form onSubmit={this.onSubmit} loading={loading}>
+            <Form onSubmit={this.onSubmit} loading={loading} className={this.props.className}>
                 <Form.Field error={!!errors.progress}>
                     <label htmlFor="progress">How many pages did you read today ?</label>
                     <input
