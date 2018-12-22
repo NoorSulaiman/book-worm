@@ -1,19 +1,18 @@
 import React from "react";
 import PropTypes from "prop-types";
-import { connect } from 'react-redux';
+import { connect } from "react-redux";
 import { Route } from "react-router-dom";
-import UserRoute from "./components/routes/UserRoute";
-import GuestRoute from "./components/routes/GuestRoute";
-import TopNavigation from './components/navigation/TopNavigation';
+import UserRoute from "./routes/UserRoute";
+import GuestRoute from "./routes/GuestRoute";
+import TopNavigation from "./components/navigation/TopNavigation";
 import HomePage from "./components/pages/HomePage";
 import LoginPage from "./components/pages/LoginPage";
 import DashboardPage from "./components/pages/DashboardPage";
 import SignupPage from "./components/pages/SignupPage";
 import ConfirmationPage from "./components/pages/ConfirmationPage";
-import ForgotPasswordPage from './components/pages/ForgotPasswordPage';
-import ResetPasswordPage from './components/pages/ResetPasswordPage';
-import NewBookPage from './components/pages/NewBookPage';
-
+import ForgotPasswordPage from "./components/pages/ForgotPasswordPage";
+import ResetPasswordPage from "./components/pages/ResetPasswordPage";
+import NewBookPage from "./components/pages/NewBookPage";
 
 const App = ({ location, isAuthenticated }) => (
   <div className="ui container">
@@ -69,6 +68,6 @@ App.propTypes = {
 function mapStateToProps(state) {
   return {
     isAuthenticated: !!state.user.email
-  }
+  };
 }
 export default connect(mapStateToProps)(App);

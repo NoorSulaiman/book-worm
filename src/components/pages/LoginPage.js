@@ -1,25 +1,23 @@
 import React from "react";
 import PropTypes from "prop-types";
 import { connect } from "react-redux";
-import { Link } from 'react-router-dom';
+import { Link } from "react-router-dom";
 import LoginForm from "../forms/LoginForm";
 import { login } from "../../actions/auth";
 
-class LoginPage extends React.Component {
-  submit = data =>
-    this.props.login(data).then(() => this.props.history.push("/dashboard"));
+const LoginPage = props => {
+  const submit = data =>
+    props.login(data).then(() => props.history.push("/dashboard"));
 
-  render() {
-    return (
-      <div>
-        <h1>Login page</h1>
+  return (
+    <div>
+      <h1>Login page</h1>
 
-        <LoginForm submit={this.submit} />
-        <Link to="/forget_password">Forgot Password?</Link>
-      </div>
-    );
-  }
-}
+      <LoginForm submit={submit} />
+      <Link to="/forget_password">Forgot Password?</Link>
+    </div>
+  );
+};
 
 LoginPage.propTypes = {
   history: PropTypes.shape({
