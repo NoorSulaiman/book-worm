@@ -1,0 +1,17 @@
+#signupPageContainer,
+#loginPageContainer {
+  width: 40%;
+  margin: auto;
+  background: #fff;
+  padding: 2%;
+  margin-top: 7%;
+  box-shadow: 0 3px 10px #333;
+  border-radius: 1%;
+}
+
+@media only screen and (max-width: 415px) {
+  #signupPageContainer,
+  #loginPageContainer {
+    width: 100%;
+  }
+}

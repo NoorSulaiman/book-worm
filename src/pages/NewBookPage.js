@@ -2,9 +2,9 @@ import React, { Component } from "react";
 import PropTypes from "prop-types";
 import { Segment } from "semantic-ui-react";
 import { connect } from "react-redux";
-import { searchBooks, fetchPages, createBook } from "../../actions/books";
-import SearchBookForm from "../forms/SearchBookForm";
-import BookForm from "../forms/BookForm";
+import { searchBooks, fetchPages, createBook } from "../actions/books";
+import SearchBookForm from "../components/forms/SearchBookForm";
+import BookForm from "../components/forms/BookForm";
 
 class NewBookPage extends Component {
   state = {

@@ -1,11 +1,11 @@
 import React from "react";
 import PropTypes from "prop-types";
 import { connect } from "react-redux";
-import { fetchBooks, progress, deleteBook } from "../../actions/books";
-import ConfirmEmailMessage from "../messages/ConfirmEmailMessage";
-import { allBooksSelector } from "../../reducers/books";
-import AddBooks from "../cards/AddBooks";
-import BooksList from "../lists/BooksList";
+import { fetchBooks, progress, deleteBook } from "../actions/books";
+import ConfirmEmailMessage from "../components/messages/ConfirmEmailMessage";
+import { allBooksSelector } from "../reducers/books";
+import AddBooks from "../components/cards/AddBooks";
+import BooksList from "../components/lists/BooksList";
 
 class DashboardPage extends React.Component {
   componentDidMount = () => {
@@ -28,7 +28,7 @@ class DashboardPage extends React.Component {
     return (
       <div>
         {!isConfirmed && <ConfirmEmailMessage />}
-
+        <br />
         {books.length === 0 ? (
           <AddBooks />
         ) : (

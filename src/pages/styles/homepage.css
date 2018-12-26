@@ -1,0 +1,44 @@
+@import url("https://fonts.googleapis.com/css?family=Charm|Cookie|Pacifico");
+#logout {
+  margin-left: 15%;
+}
+#homePageContainer {
+  background-image: url("../../assets/books.jpg");
+  height: 750px;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+#appTitle {
+  font-family: "Cookie", cursive;
+  color: #fff;
+  font-size: 80px;
+  font-weight: 400;
+  width: 40%;
+  margin-left: 15%;
+}
+
+#loginLinksContainer {
+  width: 50%;
+  margin-left: 15%;
+  display: flex;
+}
+
+#description {
+  opacity: 0;
+  margin-left: 15%;
+  margin-top: 10%;
+  font-size: 1.6em;
+  color: #fff;
+  letter-spacing: 1px;
+  animation: fadein 400ms ease-in-out forwards;
+}
+
+@keyframes fadein {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}

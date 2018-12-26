@@ -1,80 +1,80 @@
-img{
-    width: 100%;
-    max-width: 100%;
+#bookCard {
+  box-shadow: 0 3px 10px #333;
 }
-#imgContainer{
-    width: 50%;
-    margin: auto;
+img {
+  width: 100%;
+  max-width: 100%;
 }
-#showme{
-    visibility: hidden;
+#imgContainer {
+  width: 50%;
+  margin: auto;
 }
-#bookCard:hover #showme{
-    visibility: visible;
+#showme {
+  visibility: hidden;
 }
-#confrimDelete{
-    margin: auto;
-    margin-top: 1% !important;
-    
+#bookCard:hover #showme {
+  visibility: visible;
 }
-#arrowIcon{
-    margin: auto;
+#confrimDelete {
+  margin: auto;
+  margin-top: 1% !important;
 }
-#showProgressButton{
-    width: 100%;
-    margin: 2%;
-    padding: 6%;
+#arrowIcon {
+  margin: auto;
 }
-.bookCardDelete {   
-    animation: bookDelete 300ms ease-in-out 1 normal forwards;
+#showProgressButton {
+  width: 100%;
+  margin: 2%;
+  padding: 6%;
 }
-.arrowIconUp{
-    animation: iconRotateUp 300ms ease-in-out 0s 1 normal forwards; 
+.bookCardDelete {
+  animation: bookDelete 300ms ease-in-out 1 normal forwards;
 }
-.arrowIconDown{
-    animation: iconRotateDown 300ms ease-in-out 1 reverse forwards;
+.arrowIconUp {
+  animation: iconRotateUp 300ms ease-in-out 0s 1 normal forwards;
 }
-.formClassDown{
-    animation: scaleDown 300ms ease-in-out 1 normal forwards;
+.arrowIconDown {
+  animation: iconRotateDown 300ms ease-in-out 1 reverse forwards;
 }
-
-.iconDisplay{
-    display: none;
+.formClassDown {
+  animation: scaleDown 300ms ease-in-out 1 normal forwards;
 }
 
-@keyframes iconRotateUp{
-    from{
-        transform: rotate(0deg);
-    }
-    to{
-        transform: rotate(90deg);
-    }
-
+.iconDisplay {
+  display: none;
 }
 
-@keyframes iconRotateDown{
-    from{
-        transform: rotate(0deg);
-    }
-    to{
-        transform: rotate(90deg);
-    }
+@keyframes iconRotateUp {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(90deg);
+  }
+}
 
+@keyframes iconRotateDown {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(90deg);
+  }
 }
 
 @keyframes bookDelete {
-    from {
-        transform: scale(1);
-    }
-    to{
-        transform: scale(0);
-    }
+  from {
+    transform: scale(1);
+  }
+  to {
+    transform: scale(0);
+  }
 }
 @keyframes scaleDown {
-    from {
-        transform: scale(0)
-    }
-    to{
-        transform: scale(1);
-    }
+  from {
+    transform: scale(0);
+  }
+  to {
+    transform: scale(1);
+  }
 }

@@ -3,7 +3,7 @@ import PropTypes from "prop-types";
 import { Message, Icon } from "semantic-ui-react";
 import { connect } from "react-redux";
 import { Link } from "react-router-dom";
-import { confirm } from "../../actions/auth";
+import { confirm } from "../actions/auth";
 
 class ConfirmationPage extends React.Component {
   state = {
@@ -37,7 +37,7 @@ class ConfirmationPage extends React.Component {
               <Message.Content>
                 <Message.Header>
                   Thank you. Your account has been verified.
-              </Message.Header>
+                </Message.Header>
                 <Link to="/dashboard">Go to your dashboard</Link>
               </Message.Content>
             </Message>
