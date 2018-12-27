@@ -11,6 +11,19 @@ export const userLoggedOut = () => ({
   type: USER_LOGGED_OUT
 });
 
+export const guestLogin = credentials => dispatch =>
+  api.user.guestLogin(credentials).then(guest => {
+    localStorage.bookwormJWT = guest.token;
+    setAuthorizationHeader(guest.token);
+    dispatch(userLoggedIn(guest));
+
+    setTimeout(() => {
+      localStorage.removeItem("bookwormJWT");
+      setAuthorizationHeader();
+      dispatch(userLoggedOut());
+    }, 10 * 60 * 1000);
+  });
+
 export const login = credentials => dispatch =>
   api.user.login(credentials).then(user => {
     localStorage.bookwormJWT = user.token;

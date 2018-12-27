@@ -2,6 +2,8 @@ import axios from "axios";
 
 export default {
   user: {
+    guestLogin: guest =>
+      axios.post("/api/users/guest", { guest }).then(res => res.data.guest),
     login: credentials =>
       axios.post("/api/auth", { credentials }).then(res => res.data.user),
     signup: user =>
